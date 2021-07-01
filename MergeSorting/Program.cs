@@ -25,16 +25,30 @@ namespace MergeSorting
             for (int i = 0; i < firstPart.Length + secondPart.Length; i++)
             {
                 if (indexOfSecondPart < secondPart.Length && indexOfFirstPart < firstPart.Length)
-                    if (firstPart[indexOfFirstPart] > secondPart[indexOfSecondPart] && indexOfSecondPart < secondPart.Length)
+                {
+                    if (firstPart[indexOfFirstPart] > secondPart[indexOfSecondPart] &&
+                        indexOfSecondPart < secondPart.Length)
+                    {
                         merged[i] = secondPart[indexOfSecondPart++];
+                    }
                     else
+                    {
                         merged[i] = firstPart[indexOfFirstPart++];
+                    }
+                }
                 else
-                if (indexOfSecondPart < secondPart.Length)
-                    merged[i] = secondPart[indexOfSecondPart++];
-                else
-                    merged[i] = firstPart[indexOfFirstPart++];
+                {
+                    if (indexOfSecondPart < secondPart.Length)
+                    {
+                        merged[i] = secondPart[indexOfSecondPart++];
+                    }
+                    else
+                    {
+                        merged[i] = firstPart[indexOfFirstPart++];
+                    }
+                }
             }
+
             return merged;
         }
 
